@@ -1,4 +1,4 @@
-name: NodeJS with Webpack
+name: NodeJS with Nx
 
 on:
   push:
@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [16.x]
 
     steps:
     - uses: actions/checkout@v3
@@ -21,7 +21,11 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    - uses: nrwl/nx-set-shas@v3
+    - name: Derive appropriate SHAs for base and head 
+      uses: nrwl/nx-set-shas@v3
+    - run: |
+        echo "BASE: ${{ env.NX_BASE }}"
+        echo "HEAD: ${{ env.NX_HEAD }}"
     - run: npm ci
     - run: nx run-many --all --target=lint
     - run: npx nx format:check
