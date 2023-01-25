@@ -17,7 +17,7 @@ const options: { [key: string]: string } = {
 describe('Searchable', () => {
   test('filters options', () => {
     render(
-      <div className="w-full">
+      <div>
         <Searchable
           options={options}
           placeholder="search"
