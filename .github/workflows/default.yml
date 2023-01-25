@@ -13,20 +13,20 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
-
     steps:
-    - uses: actions/checkout@v3
-
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - uses: nrwl/nx-set-shas@v3
+  
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Derive appropriate SHAs for base and head 
-      uses: nrwl/nx-set-shas@v3
-    - run: |
-        echo "BASE: ${{ env.NX_BASE }}"
-        echo "HEAD: ${{ env.NX_HEAD }}"
     - run: npm ci
+      
+
+
     - run: nx run-many --all --target=lint
     - run: npx nx format:check
     - run: npx nx affected --target=test --parallel=3
