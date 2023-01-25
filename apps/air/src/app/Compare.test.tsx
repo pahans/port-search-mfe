@@ -1,10 +1,9 @@
 import { render } from '@testing-library/react';
+import Compare from './Compare';
 
-import CommonUi from './common-ui';
-
-describe('CommonUi', () => {
+describe('Compare', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<CommonUi />);
+    const { baseElement } = render(<Compare />);
     expect(baseElement).toBeTruthy();
   });
 });

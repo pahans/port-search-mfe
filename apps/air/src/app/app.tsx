@@ -1,16 +1,45 @@
+import { QueryProvider } from '@comparativo/common-ui';
 import styled from 'styled-components';
-import NxWelcome from './nx-welcome';
+import Compare from './Compare';
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  useInRouterContext,
+} from 'react-router-dom';
 
 const StyledApp = styled.div`
   // Your style here
 `;
 
 export function App() {
-  return (
-    <StyledApp>
-      <NxWelcome title="air" />
-    </StyledApp>
-  );
+  const router = useInRouterContext();
+  if (router) {
+    return (
+      <QueryProvider>
+        <StyledApp>
+          <Compare />
+        </StyledApp>
+      </QueryProvider>
+    );
+  } else {
+    return (
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/*"
+            element={
+              <QueryProvider>
+                <StyledApp>
+                  <Compare />
+                </StyledApp>
+              </QueryProvider>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;

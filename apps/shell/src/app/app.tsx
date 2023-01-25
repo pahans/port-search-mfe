@@ -1,5 +1,4 @@
 import * as React from 'react';
-import NxWelcome from './nx-welcome';
 import { Link, Route, Routes } from 'react-router-dom';
 
 const Ocean = React.lazy(() => import('ocean/Module'));
@@ -21,7 +20,6 @@ export function App() {
         </li>
       </ul>
       <Routes>
-        <Route path="/" element={<NxWelcome title="shell" />} />
         <Route path="/ocean" element={<Ocean />} />
         <Route path="/air" element={<Air />} />
       </Routes>
