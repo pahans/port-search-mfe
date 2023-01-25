@@ -2,9 +2,9 @@ name: NodeJS with Nx
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ['main']
   pull_request:
-    branches: [ "main" ]
+    branches: ['main']
 
 jobs:
   build:
@@ -14,20 +14,18 @@ jobs:
       matrix:
         node-version: [16.x]
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-    - uses: nrwl/nx-set-shas@v3
-  
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm ci
-      
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: nrwl/nx-set-shas@v3
 
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
 
-    - run: nx run-many --all --target=lint
-    - run: npx nx format:check
-    - run: npx nx affected --target=test --parallel=3
-    - run: npx nx affected --target=build --parallel=3
+      - run: npx nx run-many --all --target=lint
+      - run: npx nx format:check
+      - run: npx nx affected --target=test --parallel=3
+      - run: npx nx affected --target=build --parallel=3
