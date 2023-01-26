@@ -3,13 +3,21 @@ import HighchartsReact from 'highcharts-react-official';
 import { memo } from 'react';
 
 export type TimeSeriesProps = {
-  data: unknown[];
+  data: Point[];
   isLoading: boolean;
+};
+
+type Point = {
+  day: string;
+  id: string;
+  low: number;
+  mean: number;
+  high: number;
 };
 
 interface ChartOptions extends Highcharts.Options {
   loading: LoadingOptions;
-  series: [];
+  series: Array<Highcharts.SeriesLineOptions>;
 }
 
 const DEFAULT_OPTIONS: Highcharts.Options = {
@@ -81,18 +89,18 @@ const TimeSeries = ({ data = [], isLoading }: TimeSeriesProps): JSX.Element => {
     ],
   };
 
-  data.forEach((point) => {
-    options.series[0].data.push({
+  data.forEach((point: Point) => {
+    options.series[0].data?.push({
       id: point.day,
       x: Date.parse(point.day),
       y: point.low,
     });
-    options.series[1].data.push({
+    options.series[1].data?.push({
       id: point.day,
       x: Date.parse(point.day),
       y: point.mean,
     });
-    options.series[2].data.push({
+    options.series[2].data?.push({
       id: point.day,
       x: Date.parse(point.day),
       y: point.high,

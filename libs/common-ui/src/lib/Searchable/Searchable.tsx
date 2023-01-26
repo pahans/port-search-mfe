@@ -74,7 +74,6 @@ enum SearchActionKind {
 }
 
 const searchReducer = (state: SearchReducerState, action: SearchAction) => {
-  console.log(state, action);
   switch (action.type) {
     case 'SET_OPEN':
       return { ...state, open: true };

@@ -79,6 +79,7 @@ export function Compare() {
           <Searchable
             options={dstPortOptions}
             selected={destination}
+            data-testid="destination-search"
             onSelect={(newDestination) => {
               setPortQuery({ destination: newDestination });
             }}

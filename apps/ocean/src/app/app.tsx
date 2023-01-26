@@ -1,12 +1,12 @@
 import { QueryProvider } from '@comparativo/common-ui';
 import styled from 'styled-components';
-import Compare from './Compare';
 import {
   BrowserRouter,
   Route,
   Routes,
   useInRouterContext,
 } from 'react-router-dom';
+import Compare from './Compare';
 
 const StyledApp = styled.div``;
 
