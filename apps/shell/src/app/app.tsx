@@ -1,25 +1,55 @@
 import * as React from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
+import styled from 'styled-components';
+import './reset.css';
 
 const Ocean = React.lazy(() => import('ocean/Module'));
 
 const Air = React.lazy(() => import('air/Module'));
 
+const Ul = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  &a {
+    text-decoration: none;
+  }
+`;
+
+const Li = styled.li`
+  padding: 0.5rem;
+`;
+
+const Navigation = styled.nav`
+  background-color: #e2e2e2;
+`;
+
+const Heading = styled.h1`
+  font-family: sans-serif;
+`;
+
 export function App() {
   return (
     <React.Suspense fallback={null}>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/ocean">Ocean</Link>
-        </li>
-        <li>
-          <Link to="/air">Air</Link>
-        </li>
-      </ul>
+      <Navigation>
+        <Ul>
+          <Li>
+            <Link to="/">Home</Link>
+          </Li>
+          <Li>
+            <Link to="/ocean">Ocean</Link>
+          </Li>
+          <Li>
+            <Link to="/air">Air</Link>
+          </Li>
+        </Ul>
+      </Navigation>
       <Routes>
+        <Route
+          path="/"
+          element={<Heading>Welcome, please select an app to begin</Heading>}
+        />
         <Route path="/ocean" element={<Ocean />} />
         <Route path="/air" element={<Air />} />
       </Routes>
