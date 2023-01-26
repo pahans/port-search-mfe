@@ -26,9 +26,13 @@ const Navigation = styled.nav`
 `;
 
 const Heading = styled.h1`
+  padding: 1rem;
   font-family: sans-serif;
 `;
 
+const BodyContainer = styled.div`
+  padding: 1rem;
+`;
 export function App() {
   return (
     <React.Suspense fallback={null}>
@@ -38,21 +42,23 @@ export function App() {
             <Link to="/">Home</Link>
           </Li>
           <Li>
-            <Link to="/ocean">Ocean</Link>
+            <Link to="/ocean">/Ocean</Link>
           </Li>
           <Li>
-            <Link to="/air">Air</Link>
+            <Link to="/air">/Air</Link>
           </Li>
         </Ul>
       </Navigation>
-      <Routes>
-        <Route
-          path="/"
-          element={<Heading>Welcome, please select an app to begin</Heading>}
-        />
-        <Route path="/ocean" element={<Ocean />} />
-        <Route path="/air" element={<Air />} />
-      </Routes>
+      <BodyContainer>
+        <Routes>
+          <Route
+            path="/"
+            element={<Heading>Welcome, please select an app to begin</Heading>}
+          />
+          <Route path="/ocean" element={<Ocean />} />
+          <Route path="/air" element={<Air />} />
+        </Routes>
+      </BodyContainer>
     </React.Suspense>
   );
 }

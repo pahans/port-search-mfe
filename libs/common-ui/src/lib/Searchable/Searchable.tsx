@@ -133,7 +133,7 @@ const Searchable = ({
           dispatch({ type: SearchActionKind.SET_QUERY, query: e.target.value });
         }}
         value={state.query || options[selected]}
-        role="combobox"
+        role="textbox"
       />
       {
         <DropDownListContainer visible={state.open}>

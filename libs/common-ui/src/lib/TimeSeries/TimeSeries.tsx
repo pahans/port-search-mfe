@@ -1,15 +1,15 @@
-import Highcharts from 'highcharts';
+import Highcharts, { LoadingOptions } from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import { memo } from 'react';
 
-export type ITimeSeriesProps = {
-  data: any[];
+export type TimeSeriesProps = {
+  data: unknown[];
   isLoading: boolean;
 };
 
 interface ChartOptions extends Highcharts.Options {
-  loading: any;
-  series: any;
+  loading: LoadingOptions;
+  series: [];
 }
 
 const DEFAULT_OPTIONS: Highcharts.Options = {
@@ -43,13 +43,12 @@ const DEFAULT_OPTIONS: Highcharts.Options = {
   },
 };
 
-const TimeSeries = ({
-  data = [],
-  isLoading,
-}: ITimeSeriesProps): JSX.Element => {
+const TimeSeries = ({ data = [], isLoading }: TimeSeriesProps): JSX.Element => {
   const options: ChartOptions = {
     ...DEFAULT_OPTIONS,
-    loading: isLoading,
+    loading: {
+      hideDuration: 1000,
+    },
     lang: {
       noData: 'No Data Available',
     },
