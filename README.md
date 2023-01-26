@@ -1,5 +1,60 @@
 # Comparativo
 
+## how to run
+
+If you have docker (make sure 4300, 4301, 4302 ports are free)
+Create a `.env` file in the root directory and make sure following environmental variables are set.
+
+```bash
+NX_AIR_API_URL=https://685rp9jkj1.execute-api.eu-west-1.amazonaws.com/prod/air
+NX_AIR_API_KEY="YOUR_API_KEY"
+NX_OCEAN_API_URL=https://685rp9jkj1.execute-api.eu-west-1.amazonaws.com/prod/ocean
+NX_OCEAN_API_KEY="YOUR_API_KEY"
+```
+
+`docker compose up -d`
+
+## How to get started with development
+
+make sure following enviromental variables are set
+
+```bash
+NX_AIR_API_URL=https://685rp9jkj1.execute-api.eu-west-1.amazonaws.com/prod/air
+NX_AIR_API_KEY="YOUR_API_KEY"
+NX_OCEAN_API_URL=https://685rp9jkj1.execute-api.eu-west-1.amazonaws.com/prod/ocean
+NX_OCEAN_API_KEY="YOUR_API_KEY"
+```
+
+This repository has 3 apps and 1 library.
+shell, air and ocean are 3 apps
+common-ui is the library
+
+### How to run a project
+
+Each app can run with
+`npx nx serve <app>`
+
+For development of `common-ui` you can run
+`npx nx run common-ui:storybook`
+
+### Creating a new micro frontend app
+
+`npx nx g @nrwl/react:remote new-app --host=shell`
+
+### Creating a new library
+
+`npx nx g @nrwl/react:lib new-lib`
+
+### Running unit tests
+
+`nx run shell:test`
+
+### Linting
+
+Each project can extend eslint config provided from shell app.
+
+`nx run air:lint`
+
 ![Build Status](https://github.com/pahans/port-search-mfe/actions/workflows/default.yml/badge.svg)
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
@@ -17,3 +72,7 @@ Run `npx nx connect-to-nx-cloud` to enable [remote caching](https://nx.app) and 
 ## Further help
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
+
+```
+
+```
