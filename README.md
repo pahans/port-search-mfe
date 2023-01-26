@@ -2,7 +2,7 @@
 
 ## how to run
 
-If you have docker (make sure 4300, 4301, 4302 ports are free)
+If you have docker (make sure 4200, 4201, 4202 ports are free)
 Create a `.env` file in the root directory and make sure following environmental variables are set.
 
 ```bash
@@ -47,7 +47,7 @@ For development of `common-ui` you can run
 
 ### Running unit tests
 
-`nx run shell:test`
+`nx run air:test`
 
 ### Linting
 

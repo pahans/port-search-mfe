@@ -10,5 +10,5 @@ RUN npm ci
 RUN npm install -g nx@14.8.6
 RUN nx build shell
 
-EXPOSE 4300
-CMD [ "npx", "serve", "-l", "4300", "./dist/apps/shell"]
+EXPOSE 4200
+CMD [ "npx", "serve", "-l", "4200","./dist/apps/shell", "--cors"]

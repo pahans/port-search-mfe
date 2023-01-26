@@ -1,3 +1,5 @@
+// @ts-check
+
 const { withModuleFederation } = require('@nrwl/react/module-federation');
 const baseConfig = require('./module-federation.config');
 
@@ -24,7 +26,7 @@ const prodConfig = {
    * ]
    */
   remotes: [
-    ['air', '//localhost:4301'],
+    ['air', '//localhost:4201'],
     ['ocean', '//localhost:4202'],
   ],
 };

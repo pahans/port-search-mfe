@@ -4,11 +4,8 @@ services:
     build:
       context: .
       dockerfile: ./docker/shell/Dockerfile
-    depends_on:
-      - air
-      - ocean
     ports:
-      - '4300:4300'
+      - '4200:4200'
     volumes:
       - ./:/app
   air:
@@ -16,7 +13,7 @@ services:
       context: .
       dockerfile: ./docker/air/Dockerfile
     ports:
-      - '4301:4301'
+      - '4201:4201'
     volumes:
       - .:/app
   ocean:
@@ -24,6 +21,6 @@ services:
       context: .
       dockerfile: ./docker/ocean/Dockerfile
     ports:
-      - '4302:4302'
+      - '4202:4202'
     volumes:
       - .:/app

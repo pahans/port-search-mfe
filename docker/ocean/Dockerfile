@@ -8,7 +8,7 @@ COPY . /app
 
 RUN npm ci
 RUN npm install -g nx@14.8.6
-RUN nx build ocean
+RUN nx build shell
 
-EXPOSE 4302
-CMD [ "npx", "serve", "-l", "4302", "./dist/apps/ocean"]
+EXPOSE 4202
+CMD [ "npx", "serve", "-l", "4202","./dist/apps/ocean", "--cors"]
