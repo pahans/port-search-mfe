@@ -1,5 +1,7 @@
 # Comparativo
 
+![Build Status](https://github.com/pahans/port-search-mfe/actions/workflows/default.yml/badge.svg)
+
 ## how to run
 
 If you have docker (make sure 4200, 4201, 4202 ports are free)
@@ -54,8 +56,6 @@ For development of `common-ui` you can run
 Each project can extend eslint config provided from shell app.
 
 `nx run air:lint`
-
-![Build Status](https://github.com/pahans/port-search-mfe/actions/workflows/default.yml/badge.svg)
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
