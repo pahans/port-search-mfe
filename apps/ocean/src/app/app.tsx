@@ -8,9 +8,7 @@ import {
   useInRouterContext,
 } from 'react-router-dom';
 
-const StyledApp = styled.div`
-  // Your style here
-`;
+const StyledApp = styled.div``;
 
 export function App() {
   const router = useInRouterContext();
