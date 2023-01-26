@@ -27,7 +27,6 @@ export const Default = (): JSX.Element => {
         selected={selected}
         onSelect={(newSelected) => setSelected(newSelected)}
       ></Searchable>
-      aa
     </div>
   );
 };

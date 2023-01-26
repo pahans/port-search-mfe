@@ -1,0 +1,29 @@
+version: '2'
+services:
+  shell:
+    build:
+      context: .
+      dockerfile: ./docker/shell/Dockerfile
+    depends_on:
+      - air
+      - ocean
+    ports:
+      - '4300:4300'
+    volumes:
+      - ./:/app
+  air:
+    build:
+      context: .
+      dockerfile: ./docker/air/Dockerfile
+    ports:
+      - '4301:4301'
+    volumes:
+      - .:/app
+  ocean:
+    build:
+      context: .
+      dockerfile: ./docker/ocean/Dockerfile
+    ports:
+      - '4302:4302'
+    volumes:
+      - .:/app
