@@ -1,26 +1,22 @@
-version: '2'
+version: '3.0'
 services:
   shell:
+    image: comparativo-shell
+    pull_policy: never
     build:
       context: .
       dockerfile: ./docker/shell/Dockerfile
     ports:
       - '4200:4200'
-    volumes:
-      - ./:/app
   air:
-    build:
-      context: .
-      dockerfile: ./docker/air/Dockerfile
+    build: ./docker/air
     ports:
       - '4201:4201'
-    volumes:
-      - .:/app
+    depends_on:
+      - shell
   ocean:
-    build:
-      context: .
-      dockerfile: ./docker/ocean/Dockerfile
+    build: ./docker/ocean
     ports:
       - '4202:4202'
-    volumes:
-      - .:/app
+    depends_on:
+      - shell
