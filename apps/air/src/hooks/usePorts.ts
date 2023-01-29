@@ -8,8 +8,25 @@ export type ShippingPort = {
   name: string;
 };
 
+const fallbackData = [
+  {
+    code: 'OSL',
+    name: 'Oslo',
+  },
+  {
+    code: 'SHA',
+    name: 'Shanghai',
+  },
+  {
+    code: 'JFK',
+    name: 'New York',
+  },
+];
+
 export default function usePorts() {
-  const { data, error } = useSWR<ShippingPort[]>(PORTS_API_URL, fetcher);
+  const { data, error } = useSWR<ShippingPort[]>(PORTS_API_URL, fetcher, {
+    fallbackData,
+  });
   return {
     data,
     isLoading: !error && !data,

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
+import ErrorBoundary from './error-boundary';
 import './reset.css';
 
 const Ocean = React.lazy(() => import('ocean/Module'));
@@ -55,8 +56,22 @@ export function App() {
             path="/"
             element={<Heading>Welcome, please select an app to begin</Heading>}
           />
-          <Route path="/ocean" element={<Ocean />} />
-          <Route path="/air" element={<Air />} />
+          <Route
+            path="/ocean"
+            element={
+              <ErrorBoundary componentName="Ocean">
+                <Ocean />
+              </ErrorBoundary>
+            }
+          />
+          <Route
+            path="/air"
+            element={
+              <ErrorBoundary componentName="Air">
+                <Air />
+              </ErrorBoundary>
+            }
+          />
         </Routes>
       </BodyContainer>
     </React.Suspense>

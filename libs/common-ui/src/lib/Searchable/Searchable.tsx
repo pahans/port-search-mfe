@@ -102,7 +102,7 @@ const Searchable = ({
   const [state, dispatch] = useReducer(searchReducer, {
     open: false,
     selected: selected,
-    query: '',
+    query: options[selected] || '',
   });
   const filteredOptions: { [key: string]: string } = {};
 
